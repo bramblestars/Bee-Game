@@ -7,7 +7,6 @@ public class Collision : MonoBehaviour
     [SerializeField] float destroyDelay = 0.5f;
     [SerializeField] Color32 hasPackageColor = new Color32(255, 255, 255, 255);
     [SerializeField] Color32 noPackageColor = new Color32(255, 255, 255, 255);
-    [SerializeField] float boostSpeed = 2.0f;
 
     bool hasPackage;
 

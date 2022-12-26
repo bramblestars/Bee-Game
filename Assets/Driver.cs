@@ -54,6 +54,12 @@ public class Driver : MonoBehaviour
             rotationAngle = -rotationAngle;
         }
 
+        if (isGoingBackward(currentRotation, rotationAngle))
+        {
+            transform.Translate(0, -speed * Time.deltaTime, 0);
+            return;
+        }
+
         if (MathF.Abs(rotationAngle - currentRotation) < 5f)
         {
             rotationDirection = 0f;
@@ -70,6 +76,34 @@ public class Driver : MonoBehaviour
 
         transform.Rotate(0, 0, rotationSpeed * rotationDirection * Time.deltaTime);
         transform.Translate(0, speed * Time.deltaTime, 0);
+
+    }
+
+    private bool isGoingBackward(float currentAngle, float rotationAngle) 
+    {
+        float oppositeAngle = currentAngle - 180f;
+        if (oppositeAngle < -180f)
+        {
+            oppositeAngle = oppositeAngle + 360f;
+        }
+
+        float upperLimit = oppositeAngle + 30f;
+        float lowerLimit = oppositeAngle - 30f;
+
+        Debug.Log("upper: " + upperLimit + " lower: " + lowerLimit + " current: " + currentAngle + " input: " + rotationAngle); 
+
+        if (upperLimit > 180f)
+        {
+            return (-180f <= rotationAngle && rotationAngle <= upperLimit - 360f) || (lowerLimit <= rotationAngle && rotationAngle <= 180f);
+        }
+        else if (lowerLimit < -180f)
+        {
+            return (-180f <= rotationAngle && rotationAngle <= upperLimit) || (lowerLimit + 360f <= rotationAngle && rotationAngle <= 180f);
+        }
+        else 
+        {
+            return lowerLimit <= rotationAngle && rotationAngle <= upperLimit;
+        }
 
     }
 }

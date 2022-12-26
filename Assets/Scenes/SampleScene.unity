@@ -1152,6 +1152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55414e04cd32f6e46b353b445071918a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyDelay: 0.5
+  hasPackageColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  noPackageColor:
+    serializedVersion: 2
+    rgba: 4278246911
+  boostSpeed: 2
 --- !u!1 &688661883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,8 +2318,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113943442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.92, y: 2.09, z: 0}
+  m_LocalScale: {x: 2.651, y: 2.5684, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
