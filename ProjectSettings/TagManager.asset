@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Package
   - Customer
+  - Boundary
+  - BoundaryTop
+  - BoundaryBottom
+  - BoundaryLeft
+  - BoundaryRight
+  - Hive
   layers:
   - Default
   - TransparentFX
@@ -42,4 +48,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2161646981
     locked: 0
