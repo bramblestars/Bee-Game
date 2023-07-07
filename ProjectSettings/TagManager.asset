@@ -12,6 +12,7 @@ TagManager:
   - BoundaryLeft
   - BoundaryRight
   - Hive
+  - Flower
   layers:
   - Default
   - TransparentFX

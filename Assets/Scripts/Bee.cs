@@ -2,19 +2,28 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bee : MonoBehaviour
 {
     [SerializeField] float speed = 900f;
     [SerializeField] float rotationSpeed = 0.4f;
-    [SerializeField] GameObject car;
+    [SerializeField] int pollenLossRate = 1;
+    [SerializeField] int pollenRate = 40;
+    [SerializeField] int pollenMax = 200;
+
+    [SerializeField] GameObject bee;
+    [SerializeField] private Image pollenBar;
 
     public int health = 3; 
+    public double timer = 0.0;
     
     private Rigidbody2D rb2D;
     private bool rotatingCounterClockwise;
     private int numTimesOutOfBounds = 0;
+    private int pollen = 0;
     private float timeInsideBoundary;
+    private float lerpSpeed;
     private Vector2 pushVector;
 
     // Start is called before the first frame update
@@ -26,14 +35,31 @@ public class Bee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float currentRotation = car.transform.eulerAngles.z;
+        float currentRotation = bee.transform.eulerAngles.z;
         if (currentRotation > 180)
         {
             currentRotation = currentRotation - 360f;
         } 
 
         RotateAndTransform(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), currentRotation);
+
+        timer += Time.deltaTime;
+        if (timer >= 2.0) {
+            pollen -= pollenLossRate;
+            if (pollen < 0) {
+                pollen = 0;
+            }
+            timer = 0.0;
+        }
+
+        lerpSpeed = 3f * Time.deltaTime;
+
+        PollenBarSmoothFill();
         
+    }
+
+    void PollenBarSmoothFill() {
+        pollenBar.fillAmount = Mathf.Lerp(pollenBar.fillAmount, (float)pollen / (float)pollenMax, lerpSpeed);
     }
 
     private void RotateAndTransform(float vertical, float horizontal, float currentRotation) 
@@ -125,6 +151,13 @@ public class Bee : MonoBehaviour
             case "Hive":
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 health = 3;
+                break;
+            case "Flower":
+                pollen += pollenRate;
+                if (pollen > pollenMax) {
+                    pollen = pollenMax;
+                }
+                Debug.Log(pollen);
                 break;
         }
     }
