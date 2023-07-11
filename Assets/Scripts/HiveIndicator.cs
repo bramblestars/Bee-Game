@@ -7,8 +7,8 @@ public class HiveIndicator : MonoBehaviour
     [SerializeField] GameObject bee;
     [SerializeField] GameObject arrow;
     [SerializeField] float lengthToAppear = 5f;
-    [SerializeField] float cameraHeight = 9f;
-    [SerializeField] float cameraWidth = 21f;
+    [SerializeField] float cameraHeight = 8.18f;
+    [SerializeField] float cameraWidth = 19.1f;
     [SerializeField] float arrowOffset = 2f;
 
     private side sideToAppearOn;

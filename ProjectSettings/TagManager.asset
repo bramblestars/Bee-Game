@@ -13,6 +13,8 @@ TagManager:
   - BoundaryRight
   - Hive
   - Flower
+  - PauseMenu
+  - Instructions
   layers:
   - Default
   - TransparentFX
