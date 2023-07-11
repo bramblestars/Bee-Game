@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class InstructionPanel : MonoBehaviour
 {
-    [SerializeField] public GameObject instructions;
+    [SerializeField] GameObject instructions;
+    [SerializeField] GameObject pauseButton; 
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0f;
+        pauseButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -17,5 +19,6 @@ public class InstructionPanel : MonoBehaviour
     {
         Time.timeScale = 1f;
         instructions.SetActive(false);
+        pauseButton.SetActive(true);
     }
 }

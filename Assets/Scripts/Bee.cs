@@ -17,11 +17,11 @@ public class Bee : MonoBehaviour
 
     public int health = 3; 
     public double timer = 0.0;
+    public int pollen = 0;
     
     private Rigidbody2D rb2D;
     private bool rotatingCounterClockwise;
     private int numTimesOutOfBounds = 0;
-    private int pollen = 0;
     private float timeInsideBoundary;
     private float lerpSpeed;
     private Vector2 pushVector;
@@ -150,6 +150,7 @@ public class Bee : MonoBehaviour
                 break;
             case "Hive":
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+                pollen = 0;
                 health = 3;
                 break;
             case "Flower":
