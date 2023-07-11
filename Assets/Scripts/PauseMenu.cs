@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public static bool isPaused = false;
     [SerializeField] public GameObject pauseMenuUI;
     [SerializeField] public GameObject instructionsPanel;
+    [SerializeField] public Button resumeButton;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,7 @@ public class PauseMenu : MonoBehaviour
             return;
         }
         pauseMenuUI.SetActive(true);
+        resumeButton.Select();
         Time.timeScale = 0f;
         isPaused = true;
     }
