@@ -146,6 +146,8 @@ public class Bee : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         switch (other.tag) {
+            // we use numTimesOutOfBounds to keep track of if the bee is in the boundary in case the bee is hitting
+            // two boundaries at once (i.e. in the corner)
             case "BoundaryTop": 
                 pushVector = pushVector + Vector2.down;
                 numTimesOutOfBounds += 1;
