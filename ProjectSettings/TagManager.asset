@@ -52,6 +52,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Hive Indicator
+    uniqueID: 2716568731
+    locked: 0
   - name: UI
     uniqueID: 2161646981
     locked: 0

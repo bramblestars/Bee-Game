@@ -6,6 +6,7 @@ public class HiveIndicator : MonoBehaviour
 {
     [SerializeField] GameObject bee;
     [SerializeField] GameObject arrow;
+    [SerializeField] GameObject fillCircle;
     [SerializeField] float lengthToAppear = 5f;
     [SerializeField] float cameraHeight = 8.18f;
     [SerializeField] float cameraWidth = 19.1f;
@@ -27,6 +28,7 @@ public class HiveIndicator : MonoBehaviour
         {
             transform.position = bee.transform.position + new Vector3(0, 90f, 0);
             arrow.transform.position = transform.position;
+            fillCircle.SetActive(true);
         }
         else 
         {
