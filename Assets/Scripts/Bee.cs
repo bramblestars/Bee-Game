@@ -46,32 +46,32 @@ public class Bee : MonoBehaviour
             currentRotation = currentRotation - 360f;
         } 
 
-        RotateAndTransform(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), currentRotation);
+        if (!youWinPanel.activeSelf) {
+            RotateAndTransform(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), currentRotation);
 
-        // Update total timer
-        timer += Time.deltaTime;
+            // Update total timer
+            timer += Time.deltaTime;
 
-        // Update the pollen amount every 2 seconds
-        pollenLossTimer += Time.deltaTime;
-        if (pollenLossTimer >= 2.0) {
-            pollen -= pollenLossRate;
-            quotaMet -= pollenLossRate / 2;
-            if (pollen < 0) {
-                pollen = 0;
+            // Update the pollen amount every 2 seconds
+            pollenLossTimer += Time.deltaTime;
+            if (pollenLossTimer >= 2.0) {
+                pollen -= pollenLossRate;
+                quotaMet -= pollenLossRate / 2;
+                if (pollen < 0) {
+                    pollen = 0;
+                }
+                if (quotaMet < 0) {
+                    Debug.Log("You lose!");
+                }
+                pollenLossTimer = 0.0;
             }
-            if (quotaMet < 0) {
-                Debug.Log("You lose!");
-            }
-            pollenLossTimer = 0.0;
+        } else {
+            rb2D.velocity = Vector2.zero;
         }
 
         lerpSpeed = 3f * Time.deltaTime;
 
         PollenSmoothFill();
-
-        if (quotaCircle.fillAmount >= 1f && pollenBar.fillAmount <= 0.01f) {
-            Time.timeScale = 0f;
-        }
         
     }
 
@@ -178,6 +178,8 @@ public class Bee : MonoBehaviour
             case "Hive":
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 quotaMet += pollen;
+
+                // show the "You Win" panel and set the timer
                 if (quotaMet >= quota) {
                     youWinPanel.SetActive(true);
 
