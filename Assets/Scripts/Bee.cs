@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Bee : MonoBehaviour
 {
@@ -17,8 +18,11 @@ public class Bee : MonoBehaviour
     [SerializeField] GameObject bee;
     [SerializeField] private Image pollenBar;
     [SerializeField] private Image quotaCircle;
+    [SerializeField] private GameObject youWinPanel;
+    [SerializeField] private TextMeshProUGUI gameTimer;
 
     public double timer = 0.0;
+    public double pollenLossTimer = 0.0;
     public int pollen = 0;
     
     private Rigidbody2D rb2D;
@@ -44,9 +48,12 @@ public class Bee : MonoBehaviour
 
         RotateAndTransform(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), currentRotation);
 
-        // Update the pollen amount
+        // Update total timer
         timer += Time.deltaTime;
-        if (timer >= 2.0) {
+
+        // Update the pollen amount every 2 seconds
+        pollenLossTimer += Time.deltaTime;
+        if (pollenLossTimer >= 2.0) {
             pollen -= pollenLossRate;
             quotaMet -= pollenLossRate / 2;
             if (pollen < 0) {
@@ -55,12 +62,16 @@ public class Bee : MonoBehaviour
             if (quotaMet < 0) {
                 Debug.Log("You lose!");
             }
-            timer = 0.0;
+            pollenLossTimer = 0.0;
         }
 
         lerpSpeed = 3f * Time.deltaTime;
 
         PollenSmoothFill();
+
+        if (quotaCircle.fillAmount >= 1f && pollenBar.fillAmount <= 0.01f) {
+            Time.timeScale = 0f;
+        }
         
     }
 
@@ -168,8 +179,16 @@ public class Bee : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0f, 0f, 0f);
                 quotaMet += pollen;
                 if (quotaMet >= quota) {
-                    Debug.Log("You Win!");
+                    youWinPanel.SetActive(true);
+
+                    int minutes = (int) Math.Floor(timer / 60);
+                    int seconds = (int) Math.Floor(timer % 60);
+                    string mins = minutes < 10 ? "0" + minutes.ToString() : minutes.ToString();
+                    string secs = seconds < 10 ? "0" + seconds.ToString() : seconds.ToString();
+
+                    gameTimer.text = "<color=#ffec9b>time:</color> " + mins + ":" + secs;
                 }
+
                 pollen = 0;
                 break;
             case "Flower":

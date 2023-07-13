@@ -6,7 +6,6 @@ public class HiveIndicator : MonoBehaviour
 {
     [SerializeField] GameObject bee;
     [SerializeField] GameObject arrow;
-    [SerializeField] GameObject fillCircle;
     [SerializeField] float lengthToAppear = 5f;
     [SerializeField] float cameraHeight = 8.18f;
     [SerializeField] float cameraWidth = 19.1f;
@@ -15,34 +14,27 @@ public class HiveIndicator : MonoBehaviour
     private side sideToAppearOn;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
     }
 
     // Update is called once per frame
-    void Update()
-    {        
+    void Update() {        
         
-        if(canSeeHive())
-        {
+        if(canSeeHive()) {
             transform.position = bee.transform.position + new Vector3(0, 90f, 0);
             arrow.transform.position = transform.position;
-            fillCircle.SetActive(true);
         }
-        else 
-        {
+        else {
             transform.position = bee.transform.position + getOffsetVectorAndSetArrow(bee.transform.position);
         }
     }
 
-    private bool canSeeHive()
-    {
+    private bool canSeeHive() {
         return bee.transform.position.magnitude < lengthToAppear;
     }
 
-    private side getSide(Vector3 beePos)
-    {
+    private side getSide(Vector3 beePos) {
         if (Mathf.Abs(beePos.y) >= Mathf.Abs(beePos.x))
         {
             return beePos.y > 0? side.Bottom : side.Top;
@@ -53,15 +45,13 @@ public class HiveIndicator : MonoBehaviour
         }
     }
 
-    private Vector3 getOffsetVectorAndSetArrow(Vector3 beePos)
-    {
+    private Vector3 getOffsetVectorAndSetArrow(Vector3 beePos) {
         
         side currentSide = getSide(beePos);
         Vector3 offset = Vector3.zero;
         float leftRightAngle = Vector3.Angle(Vector3.up, beePos) * Mathf.Deg2Rad;
         float topBottomAngle = Vector3.Angle(Vector3.right, beePos) * Mathf.Deg2Rad;
-        switch (currentSide)
-        {
+        switch (currentSide) {
             case side.Top:
                 offset = new Vector3(-Mathf.Cos(topBottomAngle) * cameraWidth * 0.7f, cameraHeight / 2f, 0);
                 arrow.transform.rotation = Quaternion.Euler(0f, 0f, Vector3.Angle(Vector3.right, -bee.transform.position) - 90f);
@@ -84,8 +74,7 @@ public class HiveIndicator : MonoBehaviour
         return offset;
     }
 
-    private enum side
-    {
+    private enum side {
         Top,
         Bottom,
         Left,
