@@ -19,6 +19,7 @@ public class Bee : MonoBehaviour
     [SerializeField] private Image pollenBar;
     [SerializeField] private Image quotaCircle;
     [SerializeField] private GameObject youWinPanel;
+    [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameTimer;
 
     public double timer = 0.0;
@@ -61,7 +62,8 @@ public class Bee : MonoBehaviour
                     pollen = 0;
                 }
                 if (quotaMet < 0) {
-                    Debug.Log("You lose!");
+                    Time.timeScale = 0f;
+                    gameOverPanel.SetActive(true);
                 }
                 pollenLossTimer = 0.0;
             }
@@ -198,7 +200,6 @@ public class Bee : MonoBehaviour
                 if (pollen > pollenMax) {
                     pollen = pollenMax;
                 } 
-                Debug.Log(pollen);
                 break;
         }
     }
