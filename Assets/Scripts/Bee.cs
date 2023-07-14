@@ -67,7 +67,15 @@ public class Bee : MonoBehaviour
                 }
                 pollenLossTimer = 0.0;
             }
-        } else {
+
+            Color color = quotaCircle.color;
+
+            // change the color to red if quotaMet is less than a fifth of max quota
+            color.g = Mathf.Lerp(color.g, quotaMet < quota / 5 ? 80f / 255f : 228f / 255f, Time.deltaTime);
+            quotaCircle.color = color;
+        } 
+        
+        else {
             rb2D.velocity = Vector2.zero;
         }
 
