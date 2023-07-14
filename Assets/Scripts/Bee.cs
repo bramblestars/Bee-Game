@@ -13,7 +13,7 @@ public class Bee : MonoBehaviour
     [SerializeField] int pollenPerFlower = 40;
     [SerializeField] int pollenMax = 200;
     [SerializeField] int quota = 600;
-    [SerializeField] int quotaMet = 40;
+    [SerializeField] public int quotaMet = 40;
 
     [SerializeField] GameObject bee;
     [SerializeField] private Image pollenBar;
@@ -41,13 +41,14 @@ public class Bee : MonoBehaviour
     // Update is called once per frame
     void Update() {
 
-        // Move and rotate the bee
-        float currentRotation = bee.transform.eulerAngles.z;
-        if (currentRotation > 180) {
-            currentRotation = currentRotation - 360f;
-        } 
+        if (!youWinPanel.activeSelf && !gameOverPanel.activeSelf) {
 
-        if (!youWinPanel.activeSelf) {
+            // Move and rotate the bee
+            float currentRotation = bee.transform.eulerAngles.z;
+            if (currentRotation > 180) {
+                currentRotation = currentRotation - 360f;
+            } 
+
             RotateAndTransform(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"), currentRotation);
 
             // Update total timer
@@ -62,7 +63,6 @@ public class Bee : MonoBehaviour
                     pollen = 0;
                 }
                 if (quotaMet < 0) {
-                    Time.timeScale = 0f;
                     gameOverPanel.SetActive(true);
                 }
                 pollenLossTimer = 0.0;
