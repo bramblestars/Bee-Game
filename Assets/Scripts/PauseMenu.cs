@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -11,17 +12,12 @@ public class PauseMenu : MonoBehaviour
     public static bool isPaused = false;
     [SerializeField] public GameObject pauseMenuUI;
     [SerializeField] public GameObject instructionsPanel;
+    [SerializeField] public GameObject optionsPanel;
+    [SerializeField] private TextMeshProUGUI instructionsButtonText;
     [SerializeField] public Button resumeButton;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Time.timeScale = 0f;
-    }
-
+    
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (isPaused && !instructionsPanel.activeSelf) {
                 Resume();
@@ -32,8 +28,7 @@ public class PauseMenu : MonoBehaviour
         
     }
 
-    public void Pause() 
-    {
+    public void Pause() {
         if (instructionsPanel.activeSelf) {
             return;
         }
@@ -43,11 +38,20 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
     }
 
-    public void Resume() 
-    {
+    public void Resume() {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void Instructions() {
+        instructionsPanel.SetActive(true);
+        instructionsButtonText.text = "got it!";
+    }
+
+    public void Options() {
+        pauseMenuUI.SetActive(false);
+        optionsPanel.SetActive(true);
     }
 
     public void LoadMenu() {

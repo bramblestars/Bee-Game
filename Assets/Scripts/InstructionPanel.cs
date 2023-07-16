@@ -7,6 +7,7 @@ public class InstructionPanel : MonoBehaviour
 {
     [SerializeField] GameObject instructions;
     [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject pauseMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,9 @@ public class InstructionPanel : MonoBehaviour
     // Update is called once per frame
     public void DismissInstructions()
     {
-        Time.timeScale = 1f;
+        if (!pauseMenu.activeSelf) {
+            Time.timeScale = 1f;
+        }
         instructions.SetActive(false);
         pauseButton.SetActive(true);
     }
