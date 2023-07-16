@@ -23,6 +23,6 @@ public class OptionsMenu : MonoBehaviour
 
     public void Accept() {
         optionsMenuUI.SetActive(false);
-        pauseMenuUI.SetActive(true);
+        pauseMenuUI?.SetActive(true);
     }
 }
