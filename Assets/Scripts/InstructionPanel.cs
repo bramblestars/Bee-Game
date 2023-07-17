@@ -8,6 +8,7 @@ public class InstructionPanel : MonoBehaviour
     [SerializeField] GameObject instructions;
     [SerializeField] GameObject pauseButton;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] Button pauseMenuInstructionsButton;
     [SerializeField] GameObject optionsMenu;
 
     // Start is called before the first frame update
@@ -31,5 +32,8 @@ public class InstructionPanel : MonoBehaviour
         }
         instructions.SetActive(false);
         pauseButton.SetActive(true);
+        if (pauseMenu.activeSelf) {
+            pauseMenuInstructionsButton.Select();
+        }
     }
 }

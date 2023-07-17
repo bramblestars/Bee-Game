@@ -17915,6 +17915,7 @@ MonoBehaviour:
   instructions: {fileID: 1942617542}
   pauseButton: {fileID: 776385844}
   pauseMenu: {fileID: 1724560974}
+  pauseMenuInstructionsButton: {fileID: 2055215642}
   optionsMenu: {fileID: 178173990}
 --- !u!1 &1874480106
 GameObject:

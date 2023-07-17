@@ -4572,8 +4572,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 439217369}
   optionsPanel: {fileID: 1346836608}
-  fullScreenToggle: {fileID: 1400588959}
+  optionsAcceptButton: {fileID: 1358519721}
   creditsPanel: {fileID: 1667115484}
+  creditBackButton: {fileID: 1627627662}
   titleAndButtons: {fileID: 1719108570}
 --- !u!1 &1566661255
 GameObject:
