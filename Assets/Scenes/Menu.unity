@@ -2243,7 +2243,7 @@ AudioSource:
   m_GameObject: {fileID: 892404640}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a6eb4fb4651757d49aaabd8ae2f92df5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 322197e05c291ac45b9ad7e6a0611e65, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -4574,6 +4574,7 @@ MonoBehaviour:
   optionsPanel: {fileID: 1346836608}
   optionsAcceptButton: {fileID: 1358519721}
   creditsPanel: {fileID: 1667115484}
+  creditsButton: {fileID: 0}
   creditBackButton: {fileID: 1627627662}
   titleAndButtons: {fileID: 1719108570}
 --- !u!1 &1566661255

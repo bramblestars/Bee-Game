@@ -19,7 +19,9 @@ public class Bee : MonoBehaviour
     [SerializeField] private Image pollenBar;
     [SerializeField] private Image quotaCircle;
     [SerializeField] private GameObject youWinPanel;
+    [SerializeField] private Button youWinReplayButton;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private Button gameOverReplayButton;
     [SerializeField] private TextMeshProUGUI gameTimer;
 
     public double timer = 0.0;
@@ -64,6 +66,7 @@ public class Bee : MonoBehaviour
                 }
                 if (quotaMet < 0) {
                     gameOverPanel.SetActive(true);
+                    gameOverReplayButton.Select();
                 }
                 pollenLossTimer = 0.0;
             }
@@ -192,6 +195,7 @@ public class Bee : MonoBehaviour
                 // show the "You Win" panel and set the timer
                 if (quotaMet >= quota) {
                     youWinPanel.SetActive(true);
+                    youWinReplayButton.Select();
 
                     int minutes = (int) Math.Floor(timer / 60);
                     int seconds = (int) Math.Floor(timer % 60);

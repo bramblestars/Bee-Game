@@ -6062,7 +6062,9 @@ MonoBehaviour:
   pollenBar: {fileID: 1032564311}
   quotaCircle: {fileID: 299516548}
   youWinPanel: {fileID: 1632691297}
+  youWinReplayButton: {fileID: 177728885}
   gameOverPanel: {fileID: 1021075144}
+  gameOverReplayButton: {fileID: 1181155957}
   gameTimer: {fileID: 807402788}
   timer: 0
   pollenLossTimer: 0
