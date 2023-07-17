@@ -1067,7 +1067,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1566661258}
     m_SelectOnDown: {fileID: 1566661258}
-    m_SelectOnLeft: {fileID: 1812526576}
+    m_SelectOnLeft: {fileID: 1592760940}
     m_SelectOnRight: {fileID: 1812526576}
   m_Transition: 1
   m_Colors:
@@ -1351,7 +1351,7 @@ Transform:
   - {fileID: 871910470}
   - {fileID: 1226914560}
   m_Father: {fileID: 1346836609}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &548832986
 GameObject:
@@ -1917,12 +1917,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1400588959}
+    m_SelectOnDown: {fileID: 1226914561}
+    m_SelectOnLeft: {fileID: 1400588959}
+    m_SelectOnRight: {fileID: 1226914561}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.9056984, b: 0.6839622, a: 0.24705882}
@@ -1951,7 +1951,7 @@ MonoBehaviour:
   m_Placeholder: {fileID: 0}
   m_ItemText: {fileID: 548832988}
   m_ItemImage: {fileID: 0}
-  m_Value: 3
+  m_Value: 2
   m_Options:
     m_Options:
     - m_Text: Low
@@ -3496,10 +3496,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 848533521}
+    m_SelectOnDown: {fileID: 1358519721}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -3507,7 +3507,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 0.6911612, b: 0.19339621, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3847,9 +3847,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 477487657}
-  - {fileID: 323737253}
   - {fileID: 1400588958}
+  - {fileID: 323737253}
+  - {fileID: 477487657}
   - {fileID: 1358519720}
   m_Father: {fileID: 1544233665}
   m_RootOrder: 0
@@ -3873,7 +3873,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: a6eb4fb4651757d49aaabd8ae2f92df5, type: 2}
   optionsMenuUI: {fileID: 1346836608}
-  pauseMenuUI: {fileID: 837271231}
+  returnToMenu: {fileID: 1719108570}
+  resumeButton: {fileID: 1566661258}
 --- !u!114 &1346836611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3924,7 +3925,7 @@ GameObject:
   - component: {fileID: 1358519722}
   - component: {fileID: 1358519721}
   m_Layer: 5
-  m_Name: OkayButton
+  m_Name: AcceptButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3964,12 +3965,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1226914561}
+    m_SelectOnDown: {fileID: 1400588959}
+    m_SelectOnLeft: {fileID: 1226914561}
+    m_SelectOnRight: {fileID: 1400588959}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 0.92155194, b: 0.7311321, a: 1}
@@ -4047,7 +4048,7 @@ RectTransform:
   - {fileID: 1232417394}
   - {fileID: 1626066631}
   m_Father: {fileID: 1346836609}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4067,18 +4068,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnUp: {fileID: 1358519721}
+    m_SelectOnDown: {fileID: 848533521}
+    m_SelectOnLeft: {fileID: 1358519721}
+    m_SelectOnRight: {fileID: 848533521}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.8588236, b: 0.63529414, a: 1}
     m_PressedColor: {r: 0.9716981, g: 0.5755133, b: 0.45376468, a: 1}
-    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 0.8588236, b: 0.63529414, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4571,6 +4572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playButton: {fileID: 439217369}
   optionsPanel: {fileID: 1346836608}
+  fullScreenToggle: {fileID: 1400588959}
   creditsPanel: {fileID: 1667115484}
   titleAndButtons: {fileID: 1719108570}
 --- !u!1 &1566661255
@@ -4643,7 +4645,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 439217369}
     m_SelectOnDown: {fileID: 439217369}
-    m_SelectOnLeft: {fileID: 1592760940}
+    m_SelectOnLeft: {fileID: 1812526576}
     m_SelectOnRight: {fileID: 1592760940}
   m_Transition: 1
   m_Colors:
@@ -4785,7 +4787,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1812526576}
     m_SelectOnDown: {fileID: 1812526576}
     m_SelectOnLeft: {fileID: 1566661258}
-    m_SelectOnRight: {fileID: 1566661258}
+    m_SelectOnRight: {fileID: 439217369}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5209,7 +5211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: a6eb4fb4651757d49aaabd8ae2f92df5, type: 2}
   optionsMenuUI: {fileID: 1667115484}
-  pauseMenuUI: {fileID: 837271231}
+  returnToMenu: {fileID: 0}
+  resumeButton: {fileID: 0}
 --- !u!222 &1667115487
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5570,7 +5573,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 1592760940}
     m_SelectOnDown: {fileID: 1592760940}
     m_SelectOnLeft: {fileID: 439217369}
-    m_SelectOnRight: {fileID: 439217369}
+    m_SelectOnRight: {fileID: 1566661258}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}

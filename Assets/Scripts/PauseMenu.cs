@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] public GameObject instructionsPanel;
     [SerializeField] public GameObject optionsPanel;
     [SerializeField] private TextMeshProUGUI instructionsButtonText;
+    [SerializeField] private Button instructionsButton;
+    [SerializeField] private Button optionsAcceptButton;
     [SerializeField] public Button resumeButton;
     
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Pause() {
-        if (instructionsPanel.activeSelf) {
+        if (instructionsPanel.activeSelf || optionsPanel.activeSelf) {
             return;
         }
         pauseMenuUI.SetActive(true);
@@ -47,11 +49,13 @@ public class PauseMenu : MonoBehaviour
     public void Instructions() {
         instructionsPanel.SetActive(true);
         instructionsButtonText.text = "got it!";
+        instructionsButton.Select();
     }
 
     public void Options() {
         pauseMenuUI.SetActive(false);
         optionsPanel.SetActive(true);
+        optionsAcceptButton.Select();
     }
 
     public void LoadMenu() {

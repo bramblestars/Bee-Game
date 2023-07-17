@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] public Button playButton;
     [SerializeField] public GameObject optionsPanel;
+    [SerializeField] public Toggle fullScreenToggle;
     [SerializeField] public GameObject creditsPanel;
     [SerializeField] public GameObject titleAndButtons;
 
@@ -22,6 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void Options() {
         optionsPanel.SetActive(true);
+        fullScreenToggle.Select();
     }
 
     public void Credits() {
