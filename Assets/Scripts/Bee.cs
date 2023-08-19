@@ -151,7 +151,7 @@ public class Bee : MonoBehaviour
         }
 
         else {
-            rotationDirection = (rotationAngle <= currentRotation && currentRotation <= rotationAngle + 180f)? -1f : 1f;
+            rotationDirection = (rotationAngle <= currentRotation && currentRotation <= rotationAngle + 180f) ? -1f : 1f;
         }
 
         // set rotation (if above a certain threshold, move towards user input angle by set speed, otherwise, just change rotation to user input angle)
